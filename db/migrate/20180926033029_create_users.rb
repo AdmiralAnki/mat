@@ -14,8 +14,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :qrank
       t.string :current_job
       t.boolean :status
-
-      t.timestamps
     end
   end
 end

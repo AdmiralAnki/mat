@@ -13,28 +13,24 @@
 ActiveRecord::Schema.define(version: 20180926033029) do
 
   create_table "requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "to_id"
-    t.integer  "from_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "to_id"
+    t.integer "from_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password"
-    t.integer  "age"
-    t.string   "caste"
-    t.string   "gender"
-    t.string   "city"
-    t.string   "religion"
-    t.string   "phone"
-    t.string   "qualification"
-    t.integer  "qrank"
-    t.string   "current_job"
-    t.boolean  "status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string  "name"
+    t.string  "email"
+    t.string  "password"
+    t.integer "age"
+    t.string  "caste"
+    t.string  "gender"
+    t.string  "city"
+    t.string  "religion"
+    t.string  "phone"
+    t.string  "qualification"
+    t.integer "qrank"
+    t.string  "current_job"
+    t.boolean "status"
   end
 
 end
