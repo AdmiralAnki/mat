@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>Search results</title>
+<style>
+table {
+    border-collapse: collapse;
+    width: 75%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+<div class="input-container">
+    <a href="user_page"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
+</div>
+<center>
+<% if @matches.present? %>
+  <% for us in @matches %>
+    <br>
+        <div >
+            <h1> <%= us.name %> </h1>
+            <p><%= us.gender %></p>
+            <p> <%= us.email %></p>
+            <p><%= us.age %></p>
+            <p><%= us.caste %></p>
+            <p><%= us.qualification %></p>
+            <p><%= us.current_job %></p>
+            <p><%= us.city %></p>
+            <p><%= button_to "Express interest", method: "post", action: "express", :to_id => us.id %></p>
+        </div>
+      <% end %>
+<%else%>
+    <h1> no users found!</h1>
+<%end%>              
+   </center>
+</body>
+</html>

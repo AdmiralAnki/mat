@@ -1,0 +1,59 @@
+<div class="input-container">
+    <a href="admin_logout"><i class="fa fa-sign-out fa-4x" aria-hidden="true" style="color: blue"></i></a>
+
+</div> 
+
+<%= link_to "Log out", {:action=>'admin_logout'} %>
+<p id="notice"><%= notice %></p>
+
+<h1><u>Users waiting for Approval</u></h1>
+<center>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      
+      <th>Age</th>
+      <th>Caste</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Religion</th>
+      <th>Phone</th>
+      <th>Qualification</th>
+      <th>Current job</th>
+      <th>Status</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+    <% @users.each do |user| %>
+      <tr class="<%=cycle('odd','even')%>">
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.age %></td>
+        <td><%= user.caste %></td>
+        <td><%= user.gender %></td>
+        <td><%= user.city %></td>
+        <td><%= user.religion %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.qualification %></td>
+        <td><%= user.current_job %></td>
+        <td><%= user.status %></td>
+        <!--<td><%= link_to 'Approve', edit_user_path(user) %></td>-->
+        <td><%= link_to 'Approve', {:controller=>'users', :action=>'approve', :u_id=>user.id} %>
+       
+        
+        
+      </tr>
+    <% end %>
+  
+  </tbody>
+</table>
+</center>
+
+
+

@@ -1,0 +1,38 @@
+<html>
+<body>
+<head><title>User Home</title>
+
+<style>
+a:link, a:visited {
+    background-color: skyblue;
+    color: black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover, a:active {
+    background-color: yellow;
+}
+
+
+body{
+    background-color: #595454;
+        
+}
+
+
+
+</style>
+</head>
+<h1><u>Dashboard</u></h1>	
+
+<body background="1.jpg">
+<center><br><br><br><br> 
+	<%= link_to "Search profiles",  {:action=> 'search_profile' } %> &nbsp&nbsp&nbsp&nbsp
+	<%= link_to "View Messages",  {:action=> 'view_messages' } %>&nbsp&nbsp&nbsp&nbsp
+	<%= link_to "Log Out",  {:action=> 'logout' } %>
+</center>	
+</body>
+
+</html>

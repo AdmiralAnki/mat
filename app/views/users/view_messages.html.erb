@@ -1,0 +1,74 @@
+<html>
+<head>
+  <title>Messages</title>
+
+  <style>
+
+  	
+  	h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  font-family: 'Roboto', sans-serif;
+}
+ol {
+    background: #ff9999;
+    padding: 20px;
+}
+
+ul {
+    background: #3399ff;
+    padding: 20px;
+}
+
+ol li {
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+    marker-right: 70px;
+}
+
+ul li {
+    background: #cce5ff;
+    margin: 5px;
+}
+
+.label {
+  font-size: 2em;
+  color: #0000ff;
+  font-weight: 100;
+  width: 100%; 
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+  background-position: -800px 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: #0000ff;
+  font-family: 'Roboto', sans-serif;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="input-container">
+    <a href="user_page"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
+</div> 
+
+<center>
+<ol>
+  <% if @n.present? %>
+      <% for us in @n %>
+          
+          <li><label class="label"><b><%= us.name %></b></label></li>
+      <% end %>
+  <% else %>
+      <li><label class="label"><b>No messages!</b></label></li>
+  <% end %>
+</ol>      
+</center>      
+</body>
+</html>

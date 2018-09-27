@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Profiles</title>
+<style>
+	
+	body  {
+    background-image: url("images/1.jpg");
+    background-color: #cccccc;
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+</head>
+<body>
+	<div class="input-container">
+    <a href="user_page"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
+	</div> 
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Find Your Interest </h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+
+				<form action="search" method="get">
+					Name:<br> <input type="text" name="name">
+					<label class="label" ><b>Gender : </b></label><br><br>
+					<input class="text" type="radio" name="gender" value="male" checked> <label class="label" ><b>Male</b></label>&nbsp&nbsp
+  					<input class="text" type="radio" name="gender" value="female"> <label class="label" ><b>Female</b></label><br><br>
+  					Age:
+					<input type="number" name="min_age" min="18" placeholder="Minimum Age">  <input type="number" name="max_age" size=3 placeholder="Maximum Age">
+					<br>
+					Religion:<br>
+						<select name="religion">
+							<option value="" selected>Any</option>
+    						<option value="hindu">Hindu</option>
+    						<option value="muslim">Muslim</option>
+    						<option value="christian">Christian</option>
+    						<option value="budhist">Budhist</option>
+    						<option value="sikh">Sikh</option>
+  						</select>
+  					<br>
+  					Caste :<br>
+  					<input type="text" name="caste">
+  					<br>
+  					Qualification:<br>
+					<select name="qual">
+						<option value="" selected>Any</option>
+    					<option value="10">10</option>
+    					<option value="12">12</option>
+    					<option value="grad">Graduate</option>
+    					<option value="postgrad">Post Graduate</option>
+  					</select>
+  					<br>
+  					Occupation :<br>
+  					<select name="job">
+						<option value="" selected>Any</option>
+						<option value="unp">Unemployed</option>
+    					<option value="govt">Government employee</option>
+    					<option value="pvt">Private employee</option>
+    					<option value="self">Self employed</option>
+  					</select>
+  					<br>
+					City:<br> <input type="text" name="city">
+
+					<input type="submit" value="SEARCH"><input type="reset" value="RESET">
+					
+				</form>
+			</div>
+		</div>
+		
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>
