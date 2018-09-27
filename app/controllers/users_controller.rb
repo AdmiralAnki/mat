@@ -27,9 +27,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-
-  end
+  
 
   def approve
     if session[:admin_id] == nil
@@ -133,6 +131,7 @@ class UsersController < ApplicationController
     if session[:user_id] == nil
       redirect_to  action: "login"
     else
+        @nam = params[:name]
         @gen = params[:gender]
         @cit = params[:city]
         @minAge = params[:min_age]
@@ -144,8 +143,12 @@ class UsersController < ApplicationController
         ql = params[:qual]    
         stat = 1
         @matches = User.where(User.arel_table[:id].does_not_match(session[:user_id]))
+        
         @matches = @matches.where('status LIKE ?', stat)
 
+        if @nam.present?
+          @matches = @matches.where('name LIKE ?', @nam)
+        end
         if @gen.present?
           @matches=@matches.where('gender LIKE ?', @gen)
         end

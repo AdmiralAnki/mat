@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,10 @@
 <!-- Add icon library -->
 <link rel="stylesheet" href="font-awesome.min.css">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body  {
+    background-image: url("images/1.jpg");
+    background-color: #8e8989;
+}
 * {box-sizing: border-box;}
 
 .input-container {
@@ -59,11 +63,24 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .btn:hover {
     opacity: 1;
 }
+
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
 </style>
 </head>
 <body>
+    <header>
+  <h2>Matrimonial Website</h2>
+</header>
+
 <div class="input-container">
-    <a href="welcome_page"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
+    <a href="/"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
 </div> 
 <center>
 <form action="login_auth" style="max-width:500px;margin:auto" method="get">
@@ -82,5 +99,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <button type="submit" class="btn">Login</button>
 </form>
 </center>
+<ul class="colorlib-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
 </body>
 </html>

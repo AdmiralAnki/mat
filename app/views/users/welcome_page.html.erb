@@ -1,75 +1,128 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
 <title>Matrimonial Website</title>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+    float: left;
+    width: 20%;
+    height: 800px; /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 80%;
+    background-color: #f1f1f1;
+    height: 800px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}
+</style>
+</head>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <label>Matrimonial Website</label>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <% if current_user %>
-      Logged in as <%= current_user.email %></br>
-      <%= link_to "Log out", {:action=>'logout'} %>
-      <% else %>
-      <%= link_to 'New User?Register here!', new_user_path %></br></br>
-      <%= link_to "User Log In", {:action=>'login'} %></br></br>
-      <%= link_to "Admin Log In", {:action=>'admin'} %>
-      <% end %>
-    </div>
-  </div>
-</div>
- 
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="images/1.jpg" alt="Architecture" width="1500" height="800">
-  <img class="w3-image" src="images/2.jpg" alt="Architecture" width="1500" height="800">
-  <img class="w3-image" src="images/3.jpg" alt="Architecture" width="1500" height="800">
-  <img class="w3-image" src="images/4.jpg" alt="Architecture" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Matrimonial</b></span> <span class="w3-hide-small w3-text-light-grey"></span></h1>
-  </div>
+<header>
+  <h2>Matrimonial Website</h2>
 </header>
 
-<script>
-var slideIndex = 0;
-carousel();
+<section>
+  <nav>
+    <ul><br><br><br><br><br>
+      <% if current_user %>
+      Logged in as <%= current_user.email %><br>
+      <%= link_to "Log out", {:action=>'logout'} %><br><br>
+      <% else %>
+      <%= link_to 'New User?Register here!', new_user_path %><br><br>
+      <%= link_to "User Log In", {:action=>'login'} %><br><br>
+      <%= link_to "Admin Log In", {:action=>'admin'} %>
+      <% end %>
+    </ul>
+  </nav>
+  
+  <article>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("w3-image");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
-    }
-    slideIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
-    setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-</script>
-<script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(41.878114, -87.629798);
-  var mapOptions= {
-    center:myCenter,
-    zoom:12, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="images/1.jpg" alt="New York" width="1200" height="700">      
+      </div>
 
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+      <div class="item">
+        <img src="images/2.jpg" alt="Chicago" width="1200" height="700">      
+      </div>
+    
+      <div class="item">
+        <img src="images/3.jpg" alt="Los Angeles" width="1200" height="700">      
+      </div>
+    </div>
+</div>
+
+</article>
+</section>
+
 </body>
 </html>
 
