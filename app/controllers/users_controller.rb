@@ -124,6 +124,8 @@ class UsersController < ApplicationController
   def user_page
     if session[:user_id] == nil
       redirect_to  action: "login"
+    else
+      @unam = User.where('id LIKE ?',session[:user_id]).select('name')
     end  
   end
 
@@ -147,14 +149,14 @@ class UsersController < ApplicationController
         @matches = @matches.where('status LIKE ?', stat)
 
         if @nam.present?
-          @matches = @matches.where('name LIKE ?', @nam)
+          @matches = @matches.where('lower(name) LIKE ?', @nam.downcase)
         end
         if @gen.present?
           @matches=@matches.where('gender LIKE ?', @gen)
         end
 
         if @cit.present?
-          @matches=@matches.where('city LIKE ?', @cit)
+          @matches=@matches.where('lower(city) LIKE ?', @cit.downcase)
         end
     
         if @minAge.present?
@@ -166,11 +168,11 @@ class UsersController < ApplicationController
         end
 
         if @rel.present?
-          @matches = @matches.where('religion LIKE ?', @rel)
+          @matches = @matches.where('lower(religion) LIKE ?', @rel.downcase)
         end
 
         if @cas.present?
-          @matches = @matches.where('caste LIKE ?', @cas)
+          @matches = @matches.where('lower(caste) LIKE ?', @cas.downcase)
         end
         
         if @job.present?
@@ -204,7 +206,7 @@ class UsersController < ApplicationController
       @test = Request.where("from_id LIKE ? AND to_id LIKE ?",@fid,@toid)
 
       if @test.present?
-        render(html: "<script>alert('You have already sent a message to this person!(click back to navigate to search)')</script>".html_safe,layout: 'application')
+         puts("too many messages")
         else
           Request.create("from_id"=>@fid,"to_id"=>@toid)    
       end

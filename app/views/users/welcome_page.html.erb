@@ -31,10 +31,30 @@ header {
 /* Create two columns/boxes that floats next to each other */
 nav {
     float: left;
-    width: 20%;
-    height: 800px; /* only for demonstration, should be removed */
-    background: #ccc;
-    padding: 20px;
+  }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
 }
 
 /* Style the list inside the menu */
@@ -78,11 +98,11 @@ footer {
 <body>
 
 <header>
-  <h2>Matrimonial Website</h2>
+  <h2>Matrimony.com</h2>
 </header>
 
 <section>
-  <nav>
+<nav>
     <ul><br><br><br><br><br>
       <% if current_user %>
       Logged in as <%= current_user.email %><br>

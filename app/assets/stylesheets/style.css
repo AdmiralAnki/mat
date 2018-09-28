@@ -158,11 +158,11 @@ img {
 /*-- end reset --*/
 body {
   background: #0000FF;
-  /* fallback for old browsers */
+  /* fallback for old browsers 
   background: -webkit-linear-gradient(to top, #0000FF, #7FFFD4);
   background: -moz-linear-gradient(to top, #ffdead, #FF00FF);
   background: -o-linear-gradient(to top, #0000FF, #ffdead);
-  background: linear-gradient(to top, #FF1493, #0000FF);
+  background: linear-gradient(to top, #FF1493, #0000FF);*/
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Roboto', sans-serif;

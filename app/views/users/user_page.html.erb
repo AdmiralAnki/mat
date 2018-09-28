@@ -22,13 +22,57 @@ body{
         
 }
 
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 
+}
 
+li {
+    float: center;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+p
+{
+    text-decoration-color: white;
+}
 </style>
 </head>
-<h1><u>Dashboard</u></h1>	
+<body>
+<header>Matrimony.com</header>
 
-<body background="1.jpg">
+<p><h1><%@unam.name%></h1></p>
 <center><br><br><br><br> 
 	<%= link_to "Search profiles",  {:action=> 'search_profile' } %> &nbsp&nbsp&nbsp&nbsp
 	<%= link_to "View Messages",  {:action=> 'view_messages' } %>&nbsp&nbsp&nbsp&nbsp

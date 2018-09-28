@@ -2,52 +2,281 @@
 <head>
   <title>Search results</title>
 <style>
-table {
-    border-collapse: collapse;
+
+/*------------------------overlay---------------------*/
+
+#overlay,#overlay2 {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 40px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+.profile{
+    width: 75%;
+    
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+.express
+{
     width: 75%;
 }
+.container{
 
- body  {
-    background-image: url("images/1.jpg");
-    background-color: #8e8989;
+
+}
+.image_container
+{
+    width: 30%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.img-container img{
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
-th, td {
+/*.img_container:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 30px solid #1DA1F2;
+  border-right: 30px solid transparent;
+  border-top: 30px solid #1DA1F2;
+  border-bottom: 30px solid transparent;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+}
+
+.img_container:after{
+  font-family: fontawesome;
+  content:"\f099";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #fff;
+  font-size: 18px;
+}
+*/
+
+
+.content{
+  width: 60%;
+  height: 100%;
+  float: left;
+  padding: 30px 40px;
+  box-sizing: border-box;
+}
+.head{
+  padding-bottom: 30px;
+}
+
+.head p{
+  font-size: 28px;
+  color: #444444;
+  font-weight: 600;
+}
+
+.head span{
+  color: #aaabaf;
+  font-size: 14px;
+}
+
+.data{
+  width: 90%;
+  overflow: hidden;
+}
+
+.inner-data{
+  width: 50%;
+  float: left;
+  text-align: left;
+  color: #aaabaf;
+}
+
+.inner-data p{
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.inner-data span{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+header {
+    background-color: #666;
+    padding: 30px;
     text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
+    font-size: 35px;
     color: white;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+li {
+    float: center;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+
+tr:hover {background-color: #f5f5f5;}
 </style>
+<script>
+// When the user clicks on <div>, open the popup
+
+
+//Disable express button
+   function clickAndDisable(link) {
+     // disable subsequent clicks
+     on();
+     link.onclick = function(event) {
+        on1();
+        event.preventDefault();
+     }
+    } 
+
+
+    //code for overlay  
+    function on() {
+    document.getElementById("overlay").style.display = "block";
+        }
+
+    function off() {
+    document.getElementById("overlay").style.display = "none";
+            }
+
+             function on1() {
+    document.getElementById("overlay2").style.display = "block";
+        }
+
+    function off1() {
+    document.getElementById("overlay2").style.display = "none";
+            }
+</script>
 </head>
+<header>
+  <h2>Matrimony.com</h2>
+</header>
+<nav>
+    <ul>
+  <li><a class="active" href="search">Users profiles</a></li>
+  <li><a href="search_profile">Modify search</a></li>
+  <li><a href="user_page">Back</a></li>
+    </ul>
+</nav>
 <body>
-<div class="input-container">
-    <a href="user_page"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
+
+<div id="overlay" onclick="off()">
+<div id="text">Your message has been sent!</div>
+</div>
+<div id="overlay2" onclick="off1()">
+    <div id="text">You can only send one message to a person!</div>
 </div>
 <center>
 <% if @matches.present? %>
   <% for us in @matches %>
     <br>
-        <div >
-            <h1> <%= us.name %> </h1>
-            <p><%= us.gender %></p>
-            <p> <%= us.email %></p>
-            <p><%= us.age %></p>
-            <p><%= us.caste %></p>
-            <p><%= us.qualification %></p>
-            <p><%= us.current_job %></p>
-            <p><%= us.city %></p>
-            <p><%= button_to "Express interest", method: "post", action: "express", :to_id => us.id %></p>
+        <div class= "profile">
+            <div class="container">
+            <div class="image_container">
+                <% if (us.gender.downcase=="male") %>
+                <img src="/images/male2.png" alt="John" >
+                <% else %>
+                <img src="/images/female2.png" alt="jane" >
+                <%end%>
+            </div>
+           
+           <div class="content">
+                <div class="head">
+                        <p><%= us.name.upcase %></p>
+                </div>
+                <table>
+                    <tr>
+                        <td>Email:  <%= us.email %></td>
+                        <td>Phone:  <%= us.phone %></td>
+                    </tr> 
+                </table>
+                <table>
+                    <tr>
+                        <td>Age: <%= us.age %></td>
+                        <td>Religion: <%= us.religion %></td>
+                        <td>Caste: <%= us.caste %></td>
+                    </tr> 
+                    <tr>
+                        <td>qualification: <%= us.qualification %> </td>
+                        <td>Employment: <%= us.current_job %></td>
+                        <td>City: <%= us.city.upcase %></td>
+                    </tr>        
+                 </table>
         </div>
+            
+            <div class="express" onclick="clickAndDisable(this);" > 
+           <%= button_to "express interest", method: "post", action: "express", :to_id => us.id %></div>
+
+           </div>
+        </div>
+           
+      
       <% end %>
 <%else%>
     <h1> no users found!</h1>
 <%end%>              
    </center>
+
+   <footer>
+      <ul> 
+       <li><a href="user_page">Back</a></li>
+    </ul>
+
+   </footer>
 </body>
 </html>

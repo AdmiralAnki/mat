@@ -55,25 +55,77 @@ ul li {
   font-family: 'Roboto', sans-serif;
 }
 
+
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+li {
+    float: center;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
   </style>
 </head>
 <body>
-
-<div class="input-container">
-    <a href="user_page"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
-</div> 
-
+<header>
+  <h2>Matrimony.com</h2>
+</header>
+<nav>
+    <ul>
+  <li><a class="active" href="view_messages">Users messages</a></li>
+  <li><a href="search_profile">Search Profiles</a></li>
+  <li><a href="user_page">Back</a></li>
+    </ul>
+</nav>
 <center>
-<ol>
+
   <% if @n.present? %>
       <% for us in @n %>
           
-          <li><label class="label"><b><%= us.name %></b></label></li>
+          <div class="messages"<b><%= us.name %></b></div>
       <% end %>
   <% else %>
-      <li><label class="label"><b>No messages!</b></label></li>
+      <div class="messages"<b>No messages !</b></div>
   <% end %>
-</ol>      
-</center>      
+</center>  
+<footer>
+      <ul> 
+       <li><a href="user_page">Back</a></li>
+    </ul>
+
+   </footer>    
 </body>
 </html>

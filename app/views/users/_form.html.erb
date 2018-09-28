@@ -26,7 +26,7 @@
 </div> 
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
+    <center><div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
@@ -35,8 +35,9 @@
       <% end %>
       </ul>
     </div>
+   
   <% end %>
-
+ </center>
   <div class="main-w3layouts wrapper">
     <h1>Registration Form</h1>
     <div class="main-agileinfo">
@@ -57,11 +58,11 @@
               
               <select class="options" name="religion" required>
               <option value="">Select Religion</option>
-              <option value="hindu">Hindu</option>
-              <option value="muslim">Muslim</option>
-              <option value="sikh">Sikh</option>
-              <option value="christian">Christian</option>
-              <option value="budhist">Budhist</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Muslim">Muslim</option>
+              <option value="Sikh">Sikh</option>
+              <option value="Christian">Christian</option>
+              <option value="Budhist">Budhist</option>
               <option value="Other">Other</option>
               </select>
               <br>
