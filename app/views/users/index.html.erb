@@ -8,19 +8,17 @@
     background-image: url("images/1.jpg"); 
     background-color: #8e8989;
 }
+
+label {
+
+  color: blue;
+  font-size: 2em;
+}
 </style>
 
 </head>
 <body>
-
-
-<div class="input-container">
-    <a href="admin_logout"><i class="fa fa-sign-out fa-4x" aria-hidden="true" style="color: blue"></i></a>
-
-</div> 
-
-<%= link_to "Log out", {:action=>'admin_logout'} %>
-<p id="notice"><%= notice %></p>
+<a href="admin_logout"><label>Log Out</label></a>
 
 <h1><u>Users waiting for Approval</u></h1>
 <center>

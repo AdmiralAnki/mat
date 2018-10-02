@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :tests
-  post 'users/new'
+  get 'users/new'
   post 'users/show'
   get 'users/login_auth'
   get 'users/login'

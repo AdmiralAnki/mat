@@ -6,24 +6,48 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
-<link href="style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- //Custom Theme files -->
 <!-- web font -->
 <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
 <!-- //web font -->
 <style >
-  
-
   body  {
-    background-image: url("images/1.jpg");
-    background-color: #8e8989;
+   font-family: "Garamond",elvetica, sans-serif;
+    background-color: #df744a;
+    color: white;
 }
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #fedcd2;
+    color: #df744a;
+    }
+
+/* Increase the font size of the heading */
+.header h1 {
+    font-size: 50px;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Times, serif;
+    color: #df744a;
+}
+h1{
+  color: #df744a;
+  font-size: 30px;
+  font-family: "Garamond",elvetica, sans-serif;
+  font-weight:bold;
+}
+
+
 </style>
 </head>
 <body>
-<div class="input-container">
-    <a href="/"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
-</div> 
+
+  <div class="header">
+  <h1>Matrimony.com</h1>
+  <p>India's top matrimony website</p>
+  </div>
+
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <center><div id="error_explanation">
@@ -39,7 +63,7 @@
   <% end %>
  </center>
   <div class="main-w3layouts wrapper">
-    <h1>Registration Form</h1>
+    <h1 style="color:white">Registration Form</h1>
     <div class="main-agileinfo">
       <div class="agileits-top">
         
@@ -91,7 +115,8 @@
           <input type="submit" value="REGISTER">
         </form>
         <br>
-        <p>Already have an Account? <a href="login"> Login Now!</a></p>
+        <p>Already have an Account?</p><p><a href="login"> Login Now!</a></p><br>
+        <p><a href="/">Back to homepage</a></p>
       </div>
     </div>
 <% end %>    

@@ -5,39 +5,17 @@
 
 /*------------------------overlay---------------------*/
 
-#overlay,#overlay2 {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0; 
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
-}
-#text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 40px;
-    color: white;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-}
 .profile{
     width: 75%;
     
-    background: #fff;
+    background: white;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 }
 .express
 {
-    width: 75%;
+    width: 30%;
 }
 .container{
 
@@ -126,24 +104,24 @@
   font-weight: 400;
 }
 
-header {
-    background-color: #666;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-    color: white;
+body{
+    
+    font-family: "Garamond",elvetica, sans-serif;
+    background-color:#df744a;
+    
+        
 }
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-
+    background-color: #df744a;
 }
 
 li {
-    float: center;
+    
     border-right:1px solid #bbb;
 }
 
@@ -153,74 +131,91 @@ li:last-child {
 
 li a {
     display: block;
-    color: white;
+    
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    float: right;
+  
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  
+  outline: none;
+  border: 2px solid #fedcd2;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  margin: 2em 0;
+  letter-spacing: 4px;
+font-family: "Garamond",Helvetica, sans-serif;
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #dcb239;
 }
+a.active{
+    background-color: #dcb239;
+  }
 
-.active {
-    background-color: #4CAF50;
+.sitename
+{
+  font-size: 30px;
+  float: left;
+   display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Times, serif;
+    color: #df744a;
+    border: 5px solid #fedcd2;
 }
-
-
-tr:hover {background-color: #f5f5f5;}
+.navbar
+{
+  background: #fedcd2;
+    color: #df744a;
+    height: 20%;
+}
+table {
+    width:100%;
+    color: black;
+}
+table, th, td {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color: #fff;
+}
+table#t01 th {
+    background-color: black;
+    color: white;
+}
+.foot
+{
+  align-self: center;
+}
 </style>
-<script>
-// When the user clicks on <div>, open the popup
 
-
-//Disable express button
-   function clickAndDisable(link) {
-     // disable subsequent clicks
-     on();
-     link.onclick = function(event) {
-        on1();
-        event.preventDefault();
-     }
-    } 
-
-
-    //code for overlay  
-    function on() {
-    document.getElementById("overlay").style.display = "block";
-        }
-
-    function off() {
-    document.getElementById("overlay").style.display = "none";
-            }
-
-             function on1() {
-    document.getElementById("overlay2").style.display = "block";
-        }
-
-    function off1() {
-    document.getElementById("overlay2").style.display = "none";
-            }
-</script>
 </head>
-<header>
-  <h2>Matrimony.com</h2>
-</header>
 <nav>
-    <ul>
-  <li><a class="active" href="search">Users profiles</a></li>
-  <li><a href="search_profile">Modify search</a></li>
+    <ul class="navbar">
+  <li class="sitename">Matrimony.com</li>
+  
   <li><a href="user_page">Back</a></li>
+  <li><a href="search_profile">Modify search</a></li>
+  <li><a class="active" href="search">Users profiles</a></li>
+  
     </ul>
 </nav>
 <body>
-
-<div id="overlay" onclick="off()">
-<div id="text">Your message has been sent!</div>
-</div>
-<div id="overlay2" onclick="off1()">
-    <div id="text">You can only send one message to a person!</div>
-</div>
 <center>
 <% if @matches.present? %>
   <% for us in @matches %>
@@ -239,22 +234,22 @@ tr:hover {background-color: #f5f5f5;}
                 <div class="head">
                         <p><%= us.name.upcase %></p>
                 </div>
-                <table>
+                <table id="t01">
                     <tr>
-                        <td>Email:  <%= us.email %></td>
-                        <td>Phone:  <%= us.phone %></td>
-                    </tr> 
-                </table>
-                <table>
+                        <td>Email</td><td><%= us.email %></td>
+                        <td>Phone</td><td><%= us.phone %></td>
+                    </tr>    
+                    <tr>    
+                        <td>Age </td><td><%= us.age %></td>
+                        <td>Religion</td> <td><%= us.religion %></td>
+                    </tr>    
                     <tr>
-                        <td>Age: <%= us.age %></td>
-                        <td>Religion: <%= us.religion %></td>
-                        <td>Caste: <%= us.caste %></td>
-                    </tr> 
+                    <td>Caste</td><td> <%= us.caste %></td>
+                    <td>Qualification</td><td> <%= us.qualification %> </td>
+                    </tr>
                     <tr>
-                        <td>qualification: <%= us.qualification %> </td>
-                        <td>Employment: <%= us.current_job %></td>
-                        <td>City: <%= us.city.upcase %></td>
+                        <td>Employment</td><td> <%= us.current_job %></td>
+                        <td><b>City</b></td><td> <%= us.city.upcase %></td>
                     </tr>        
                  </table>
         </div>
@@ -268,15 +263,15 @@ tr:hover {background-color: #f5f5f5;}
       
       <% end %>
 <%else%>
-    <h1> no users found!</h1>
-<%end%>              
-   </center>
-
-   <footer>
-      <ul> 
+    <h1>Sorry no users found!</h1>
+<%end%>      
+<footer>
+      <ul class="foot"> 
        <li><a href="user_page">Back</a></li>
     </ul>
+   </footer>        
+   </center>
 
-   </footer>
+   
 </body>
 </html>

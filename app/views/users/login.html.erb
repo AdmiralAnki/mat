@@ -8,8 +8,9 @@
 <link rel="stylesheet" href="font-awesome.min.css">
 <style>
 body  {
-    background-image: url("images/1.jpg");
-    background-color: #8e8989;
+   font-family: "Garamond",elvetica, sans-serif;
+    background-color: #df744a;
+    color: white;
 }
 * {box-sizing: border-box;}
 
@@ -40,15 +41,28 @@ body  {
 
 /* Set a style for the submit button */
 .btn {
-    background-color: dodgerblue;
-    color: white;
-    padding: 15px 15px;
-    border: none;
-    cursor: progress;
-    width: 50%;
-    opacity: 0.9;
+    font-size: 20px;
+  font-weight: bold;
+  color: #df744a;
+  background: #bfd8d2;
+  outline: none;
+  border: 2px solid #fedcd2;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 2em 0;
+  letter-spacing: 4px;
 }
-
+.btn:hover{
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background:  #dcb239;
+   opacity: 1;
+}
 .link {
     background-color: white;
     color: white;
@@ -60,44 +74,54 @@ body  {
 }
 
 
-.btn:hover {
-    opacity: 1;
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #fedcd2;
+    color: #df744a;
+    
+
 }
 
-header {
-    background-color: #666;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
+/* Increase the font size of the heading */
+.header h1 {
+    font-size: 50px;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Times, serif;
+    color: #df744a;
+}
+.ti
+{
+   font-family: "Garamond",elvetica, sans-serif;
+    font-weight:bold;
     color: white;
 }
-
+a:visited 
+{
+  color:white;
+}
 </style>
 </head>
 <body>
-    <header>
-  <h2>Matrimonial Website</h2>
-</header>
-
-<div class="input-container">
-    <a href="/"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
-</div> 
-<center>
+   <div class="header">
+  <h1>Matrimony.com</h1>
+  <p>India's top matrimony website</p>
+</div>
+  <center>
+    <h1 class="ti">User Login</h1><br><br>
 <form action="login_auth" style="max-width:500px;margin:auto" method="get">
-  <h1>User Login</h1><br><br>
-
-  <div class="input-container">
-    <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="text" placeholder="Email" name="email">
+  Email<br>
+  <div class="input-container"> 
+    <input class="input-field" type="text" placeholder="Email" name="email" required>
   </div>
-  
+  Password<br>
   <div class="input-container">
-    <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="Password" name="password">
+    <input class="input-field" type="password" placeholder="Password" name="password" required>
   </div>
 
   <button type="submit" class="btn">Login</button>
 </form>
+<p>New user?</p><p><a href="new"> Register now!</a></p><br>
 </center>
 <ul class="colorlib-bubbles">
       <li></li>

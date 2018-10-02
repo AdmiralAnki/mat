@@ -1,45 +1,29 @@
 <html>
-<body>
+
 <head><title>User Home</title>
 
-<style>
-a:link, a:visited {
-    background-color: skyblue;
-    color: black;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-a:hover, a:active {
-    background-color: yellow;
-}
 
+
+<style>
 
 body{
-    background-image: url("images/2.jpg");
-    background-color: #8e8989;
+    
+    font-family: "Garamond",elvetica, sans-serif;
+    background-color: #df744a;
+    color: white;
         
 }
 
-header {
-    background-color: #666;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-    color: white;
-}
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-
+    background-color: #df744a;
 }
 
 li {
-    float: center;
+    
     border-right:1px solid #bbb;
 }
 
@@ -49,35 +33,120 @@ li:last-child {
 
 li a {
     display: block;
-    color: white;
+    
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    float: right;
+  
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  
+  outline: none;
+  border: 2px solid #fedcd2;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  margin: 2em 0;
+  letter-spacing: 4px;
+font-family: "Garamond",Helvetica, sans-serif;
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #dcb239;
 }
+a.active{
+    background-color: #dcb239;
+  }
 
-.active {
-    background-color: #4CAF50;
-}
-
-p
+.sitename
 {
-    text-decoration-color: white;
+  font-size: 30px;
+  float: left;
+   display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Times, serif;
+    color: #df744a;
+    border: 5px solid #fedcd2;
+}
+.navbar
+{
+  background: #fedcd2;
+    color: #df744a;
+    height: 20%;
+}
+.cenText
+{
+  width: 75%; 
+  background: #fff;
+  top:50%;
+  left:50%;
+  height: 800px;
+  background:#bfd8d2;
+  opacity: 40%
+  
+}
+.data1
+{
+  padding-top: 40px;
+  
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  font-family: "Times", serif;
 }
 </style>
 </head>
-<body>
-<header>Matrimony.com</header>
+<nav>
+    <ul class="navbar">
+  <li class="sitename">Matrimony.com</li> 
+  <li><a href="logout">Logout</a></li>
+  <li><a href="view_messages">View Messages</a></li>
+  <li><a href="search_profile">Search profiles</a></li>
 
-<p><h1><%@unam.name%></h1></p>
-<center><br><br><br><br> 
-	<%= link_to "Search profiles",  {:action=> 'search_profile' } %> &nbsp&nbsp&nbsp&nbsp
-	<%= link_to "View Messages",  {:action=> 'view_messages' } %>&nbsp&nbsp&nbsp&nbsp
-	<%= link_to "Log Out",  {:action=> 'logout' } %>
-</center>	
+  <li><a class="active" href="user_page">Dashboard</a></li>
+    </ul>
+</nav>
+<body>
+  <center>
+<div class="cenText">
+  <div class="data1">
+    <h2> Dear <%= @unam.name.upcase %>, welcome to Matrimony.com</h2>
+    <hr>
+    <h3>
+      Thank you for registering with us, we at Matrimony.com strive to provide our coustomers a hassle free and happy experience. Our database contains thounsands of profiles of young men and women looking for their life partner.
+    </h3>
+    <br>
+    <h3>
+      To find your life partner go ahead and click on the "Search Profiles" button on the top right corner.This allows you to search for profiles based on various criteria.
+    </h3>
+    <br>
+    <h3>
+      To see if someone is trying to get connected to you, you can click on the "View messages"
+      button.
+    </h3>
+    
+  </div>
+
+</div>
+</center>
+ <ul class="colorlib-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>	
 </body>
 
 </html>

@@ -125,7 +125,7 @@ class UsersController < ApplicationController
     if session[:user_id] == nil
       redirect_to  action: "login"
     else
-      @unam = User.where('id LIKE ?',session[:user_id]).select('name')
+      @unam = User.find(session[:user_id])
     end  
   end
 

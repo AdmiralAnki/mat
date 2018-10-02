@@ -5,9 +5,78 @@
 <style>
 	
 
- body  {
-    background-image: url("images/1.jpg");
-    background-color: #8e8989;
+body{
+    
+    font-family: "Garamond",elvetica, sans-serif;
+    background-color: #df744a;
+    color: #df744a;
+        
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #df744a;
+}
+
+li {
+    
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: right;
+  
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  
+  outline: none;
+  border: 2px solid #fedcd2;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  margin: 2em 0;
+  letter-spacing: 4px;
+font-family: "Garamond",Helvetica, sans-serif;
+}
+
+li a:hover:not(.active) {
+    background-color: #dcb239;
+}
+a.active{
+    background-color: #dcb239;
+  }
+
+.sitename
+{
+  font-size: 30px;
+  float: left;
+   display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Times, serif;
+    color: #df744a;
+    border: 5px solid #fedcd2;
+}
+.navbar
+{
+  background: #fedcd2;
+    color: black;
+    height: 20%;
 }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,10 +89,17 @@
 <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
 <!-- //web font -->
 </head>
+<nav >
+    <ul class="navbar">
+  <li class="sitename">Matrimony.com</li>
+  
+  <li><a href="user_page">Back</a></li>
+  <li><a class="active" href="search_profile">Search profiles</a></li>
+  
+    </ul>
+</nav>
 <body>
-	<div class="input-container">
-    <a href="user_page"> <i class="fa fa-home fa-4x" style="color:white"></i></a>
-	</div> 
+	
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
 		<h1>Find Your Interest </h1>
@@ -31,38 +107,38 @@
 			<div class="agileits-top">
 
 				<form action="search" method="get">
-					Name:<br> <input type="text" name="name">
+					<label class="label">Name</label><br> <input type="text" name="name">
 					<br>
-					<label class="label" ><b>Gender : </b></label><br>
+					<label class="label"><b>Gender</b></label><br>
 					<input class="text" type="radio" name="gender" value="male" checked> <label class="label" ><b>Male</b></label>&nbsp&nbsp
   					<input class="text" type="radio" name="gender" value="female"> <label class="label" ><b>Female</b></label><br><br>
-  					Age:
+  					<label class="label">Age</label>
 					<input type="number" name="min_age" min="18" placeholder="Minimum Age">  <input type="number" name="max_age" size=3 placeholder="Maximum Age">
 					<br>
-					Religion:<br>
-						<select name="religion">
+					<label class="label">Religion</label><br>
+						<select class="options" name="religion">
 							<option value="" selected>Any</option>
-    						<option value="Hindu">Hindu</option>
-    						<option value="Muslim">Muslim</option>
-    						<option value="Christian">Christian</option>
-    						<option value="Budhist">Budhist</option>
-    						<option value="Sikh">Sikh</option>
+    						<option value="hindu">Hindu</option>
+    						<option value="muslim">Muslim</option>
+    						<option value="christian">Christian</option>
+    						<option value="budhist">Budhist</option>
+    						<option value="sikh">Sikh</option>
   						</select>
   					<br>
-  					Caste :<br>
-  					<input type="text" name="caste">
+  					<label class="label">Caste</label><br>
+  					<input type="text" name="caste" placeholder="Caste">
   					<br>
-  					Qualification:<br>
-					<select name="qual">
+  					<label class="label">Qualification:</label><br>
+					<select class="options" name="qual">
 						<option value="" selected>Any</option>
-    					<option value="10">10</option>
-    					<option value="12">12</option>
+    					<option value="10th">10th</option>
+    					<option value="12th">12th</option>
     					<option value="Graduate">Graduate</option>
     					<option value="Post Graduate">Post Graduate</option>
   					</select>
   					<br>
-  					Occupation :<br>
-  					<select name="job">
+  					<label class="label">Occupation</label><br>
+  					<select class="options" name="job">
 						<option value="" selected>Any</option>
 						<option value="Unemployed">Unemployed</option>
     					<option value="Government employee">Government employee</option>
@@ -70,7 +146,7 @@
     					<option value="Self employed">Self employed</option>
   					</select>
   					<br>
-					City:<br> <input type="text" name="city">
+					<label class="label">City</label><br> <input type="text" name="city" placeholder="City">
 
 					<input type="submit" value="SEARCH"><input type="reset" value="RESET">
 					

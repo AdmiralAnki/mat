@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Matrimonial Website</title>
+<title>Matrimony.com</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,34 +15,43 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the header */
-header {
-    background-color: #666;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
+body
+{
+  font-family: "Garamond",elvetica, sans-serif;
+    background-color: #df744a;
     color: white;
 }
+
 
 /* Create two columns/boxes that floats next to each other */
 nav {
     float: left;
-  }
+    width: 20%;
+    height: 800px; /* only for demonstration, should be removed */
+    background: #bfd8d2;
+    padding: 10px;
+    font-size: 30px;
+    font-family: "Garamond",elvetica, sans-serif;
+    font-weight:bold;
 
-ul {
+}
+
+/* Style the list inside the menu */
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    
+}
+li {
+    
+    border-right:1px solid #bbb;
+
 }
 
-li {
-    float: left;
+li:last-child {
+    border-right: none;
 }
 
 li a {
@@ -51,23 +60,24 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    color: #df744a;
+    
+}
+a:visited 
+{
+  color:#df744a;
 }
 
-li a:hover {
+li a:hover:not(.active) {
     background-color: #111;
 }
 
-/* Style the list inside the menu */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
 
 article {
     float: left;
     padding: 20px;
     width: 80%;
-    background-color: #f1f1f1;
+    background-color:#bfd8d2;;
     height: 800px; /* only for demonstration, should be removed */
 }
 
@@ -93,24 +103,44 @@ footer {
         height: auto;
     }
 }
+
+
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #fedcd2;
+    color: #df744a;
+    
+
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+    font-size: 50px;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Times, serif;
+    color: #df744a;
+}
+
 </style>
 </head>
 <body>
-
-<header>
-  <h2>Matrimony.com</h2>
-</header>
+ <div class="header">
+  <h1>Matrimony.com</h1>
+  <p>India's top matrimony website</p>
+</div>
 
 <section>
-<nav>
+  <nav>
     <ul><br><br><br><br><br>
       <% if current_user %>
       Logged in as <%= current_user.email %><br>
       <%= link_to "Log out", {:action=>'logout'} %><br><br>
       <% else %>
-      <%= link_to 'New User?Register here!', new_user_path %><br><br>
-      <%= link_to "User Log In", {:action=>'login'} %><br><br>
-      <%= link_to "Admin Log In", {:action=>'admin'} %>
+      <li><a href="users/new">Register</a></li>
+      <li><a href="users/login">Login</a></li>
+      <li><a href="users/admin">Admin login</a></li>
       <% end %>
     </ul>
   </nav>

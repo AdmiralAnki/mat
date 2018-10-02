@@ -157,15 +157,16 @@ img {
 
 /*-- end reset --*/
 body {
-  background: #0000FF;
+  background: #df744a;
   /* fallback for old browsers 
   background: -webkit-linear-gradient(to top, #0000FF, #7FFFD4);
   background: -moz-linear-gradient(to top, #ffdead, #FF00FF);
   background: -o-linear-gradient(to top, #0000FF, #ffdead);
   background: linear-gradient(to top, #FF1493, #0000FF);*/
+  color: white;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Garamond",Helvetica, sans-serif;
 }
 
 h1 {
@@ -276,11 +277,12 @@ input.email, input.text.w3lpass {
 }
 
 input[type="submit"], input[type="reset"] {
-  font-size: .9em;
-  color: #fff;
-  background: #76b852;
+  font-size: 20px;
+  font-weight: bold;
+  color: #df744a;
+  background: #a0c5bc;
   outline: none;
-  border: 1px solid #76b852;
+  border: 2px solid #fedcd2;
   cursor: pointer;
   padding: 0.9em;
   -webkit-appearance: none;
@@ -295,7 +297,7 @@ input[type="submit"]:hover {
   -o-transition: .5s all;
   -ms-transition: .5s all;
   transition: .5s all;
-  background: #8DC26F;
+  background:  #bfd8d2;
 }
 
 .agileits-top p {
