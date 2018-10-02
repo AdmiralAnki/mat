@@ -83,7 +83,7 @@ a.active{
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     color: black;
-    font-size: 40px;
+    font-size: 30px;
 }
 
   </style>
@@ -102,6 +102,7 @@ a.active{
 <br><br>
   <% if @n.present? %>
       <% for us in @n %>
+      <br>
           <div class="messages"<h3><%= us.name.upcase %> has shown interest in your profile</h2></h3></div>
       <% end %>
   <% else %>

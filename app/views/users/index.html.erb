@@ -7,18 +7,36 @@
   body{
     background-image: url("images/1.jpg"); 
     background-color: #8e8989;
+    color: black;
 }
-
-label {
-
-  color: blue;
-  font-size: 2em;
+.btn {
+    font-size: 20px;
+  font-weight: bold;
+  color: #df744a;
+  background: #bfd8d2;
+  outline: none;
+  border: 2px solid #fedcd2;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  width: 20%;
+  margin: 2em 0;
+  letter-spacing: 4px;
+}
+.btn:hover{
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background:  #dcb239;
+   opacity: 1;
 }
 </style>
 
 </head>
 <body>
-<a href="admin_logout"><label>Log Out</label></a>
+
 
 <h1><u>Users waiting for Approval</u></h1>
 <center>
@@ -58,15 +76,13 @@ label {
         <td><%= user.current_job %></td>
         <td><%= user.status %></td>
         <!--<td><%= link_to 'Approve', edit_user_path(user) %></td>-->
-        <td><%= link_to 'Approve', {:controller=>'users', :action=>'approve', :u_id=>user.id} %>
-       
-        
-        
+        <td><%= link_to 'Approve', {:controller=>'users', :action=>'approve', :u_id=>user.id} %>     
       </tr>
     <% end %>
   
   </tbody>
 </table>
+<a class="btn" href="admin_logout">Log Out</a>
 </center>
 
 <ul class="colorlib-bubbles">
