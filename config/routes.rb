@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'users/user_page'
   get 'users/search'
   get 'users/search_profile'
-  post 'users/express'
+  get 'users/express'
   get 'users/view_messages'
   get 'admin_logout' => 'users#admin_logout'
 

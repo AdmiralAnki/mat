@@ -3,8 +3,6 @@
   <title>Search results</title>
 <style>
 
-/*------------------------overlay---------------------*/
-
 .profile{
     width: 75%;
     
@@ -15,8 +13,30 @@
 }
 .express
 {
-    width: 30%;
+    font-size: 20px;
+  font-weight: bold;
+  color: #df744a;
+  background: #bfd8d2;
+  outline: none;
+  border: 2px solid #fedcd2;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  width: 100%;
+  height:20%;
+  margin: 2em 0;
+  letter-spacing: 4px;
 }
+.express:hover{
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background:  #dcb239;
+   opacity: 1;
+}
+
 .container{
 
 
@@ -290,10 +310,11 @@ function topFunction() {
                         <td><b>City</b></td><td> <%= us.city.upcase %></td>
                     </tr>        
                  </table>
+                  <div class="express" onclick="clickAndDisable(this);" > 
+           <%= link_to "express interest", method: "get", action: "express", :to_id => us.id %></div>
         </div>
             
-            <div class="express" onclick="clickAndDisable(this);" > 
-           <%= button_to "express interest", method: "post", action: "express", :to_id => us.id %></div>
+           
 
            </div>
         </div>
